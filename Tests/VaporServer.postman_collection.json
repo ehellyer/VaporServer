@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "3f5b85f5-1c1b-4239-9a21-d94357197ea9",
+		"name": "Vapor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2389822"
+	},
+	"item": [
+		{
+			"name": "AddressController",
+			"item": [
+				{
+					"name": "GetAddresses",
+					"protocolProfileBehavior": {
+						"protocolVersion": "auto"
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost8089}}/api/address/index",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"address",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAddressById",
+					"protocolProfileBehavior": {
+						"protocolVersion": "auto"
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost8089}}/api/address/:addressId",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"address",
+								":addressId"
+							],
+							"variable": [
+								{
+									"key": "addressId",
+									"value": "7ABCDB37-9CD1-4496-9AA3-21FB04D238ED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAddress",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"street\": \"1234 Main W St\",\n    \"city\": \"Richmond\",\n    \"county\": \"VA\",\n    \"postCode\": \"23838\",\n    \"countryCode\": \"USA\",\n    \"coordinate\": {\n        \"latitude\": 37.351886,\n        \"longitude\": -77.554962\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost8089}}/api/address",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAddressById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"7ABCDB37-9CD1-4496-9AA3-21FB04D238ED\",\n    \"street\": \"4321 Main W St\",\n    \"city\": \"Richmond\",\n    \"county\": \"VA\",\n    \"postCode\": \"23839\",\n    \"countryCode\": \"USA\",\n    \"coordinate\": {\n        \"latitude\": 37.351888,\n        \"longitude\": -77.554962\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost8089}}/api/address",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAddress",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost8089}}/api/address/:addressId",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"address",
+								":addressId"
+							],
+							"variable": [
+								{
+									"key": "addressId",
+									"value": "3ABFF2A6-723F-4970-85CE-FF13F32FF074"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "pewpewpewpew",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "AttachmentController",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileData",
+									"type": "file",
+									"src": "/Users/edhellyer/Downloads/Dog.jpeg"
+								},
+								{
+									"key": "userId",
+									"value": "f0e77ec4-0255-415e-8b1c-f11139c40d91",
+									"type": "text"
+								},
+								{
+									"key": "caption",
+									"value": "Good boy!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhost8089}}/api/attachment/upload",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"attachment",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "pewpewpewpew",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Galaxys and Stars",
+			"item": [
+				{
+					"name": "Create Galaxy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Whirlpool Galaxy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost8089}}/api/galaxies",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"galaxies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all galaxies",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost8089}}/api/galaxies/index",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"galaxies",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all stars",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost8089}}/api/stars/index",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"stars",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stars by galaxyId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost8089}}/api/galaxies/39133DD2-4ED0-4F3C-A93A-A8C712933261/stars",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"galaxies",
+								"39133DD2-4ED0-4F3C-A93A-A8C712933261",
+								"stars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Star",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Earth's Sun\",\n        \"galaxy\": {\n        \"id\": \"39133DD2-4ED0-4F3C-A93A-A8C712933261\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost8089}}/api/galaxies/star",
+							"host": [
+								"{{localhost8089}}"
+							],
+							"path": [
+								"api",
+								"galaxies",
+								"star"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
